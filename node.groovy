@@ -1,6 +1,6 @@
 pipeline{
-    agent {
-        label = "linux"
+    agent{
+        label "linux"
     }
     stages{
         stage("A"){
@@ -20,5 +20,15 @@ pipeline{
             }
         }
     }
-  
+    post{
+        always{
+            echo "========always========"
         }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
+    }
+}
